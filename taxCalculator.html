@@ -8,7 +8,7 @@
 
 </head>
 
-<body style="background-image: url(http://www.visiblethread.com/wp-content/uploads/Content-Tax-1.jpg); color:red; font-family:comic-sans;">
+<body style="background-image: url(http://www.visiblethread.com/wp-content/uploads/Content-Tax-1.jpg); color:black; font-family:comic-sans; font-size:35px;">
 
 
 	
@@ -31,6 +31,7 @@
 
 <p id="takehome"></p>
 
+<p id="effective"></p>
 <script>
 function salary() {
    
@@ -48,10 +49,13 @@ if(wages <12100){
 
         var thirty = wages/100*20;
         var home = wages - thirty;
+        var effective = thirty/wages*100;
 
     	 document.getElementById("demo").innerHTML = "Your base salary is "+wages +" and you pay "+thirty +" tax" ;
 
           document.getElementById("takehome").innerHTML = "Your take home salary is " +home;
+
+           document.getElementById("effective").innerHTML = "Your effective rate is " +effective+"%";
 
     	// window.alert("your base salary is "+wages);
     }
@@ -63,17 +67,23 @@ if(wages <12100){
         var adj = thirtyup/100*40
         var alltax = adj + doit;
         var home = wages - alltax;
+        var effective = alltax/wages*100;
 
          document.getElementById("demo").innerHTML = "Your base salary is "+wages +" and you pay "+alltax +" tax" ;
 
           document.getElementById("takehome").innerHTML = "Your take home salary is " +home;
+
+          document.getElementById("effective").innerHTML = "Your effective rate is " +effective+"%";
+          
+          
+
 
         // window.alert("your base salary is "+wages);
     }
 
 
 function exportToCsv() {
-            var myCsv = "Yearly tax payable "+home;
+            var myCsv = "Total money earned: "+wages+" yearly tax payable is: " +alltax + " Take home pay is: " +home;
 
             window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
         }
