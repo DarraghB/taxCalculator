@@ -1,0 +1,94 @@
+<html>
+
+
+<head>
+
+
+
+
+</head>
+
+<body style="background-image: url(http://www.visiblethread.com/wp-content/uploads/Content-Tax-1.jpg); color:red; font-family:comic-sans;">
+
+
+	
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+	<center><h1>Enter your salary</h1>
+<input type="text" id="entersal" placeholder="enter salary">
+
+<button onclick="salary()">Calculate Salary</button>
+
+<p id="demo"></p>
+
+<p id="takehome"></p>
+
+<script>
+function salary() {
+   
+
+    var wages = document.getElementById("entersal").value;
+   
+if(wages <12100){
+
+    document.getElementById("demo").innerHTML = "Your base salary is "+wages +" and you pay no tax" ;
+
+          document.getElementById("takehome").innerHTML = "Your take home salary is " +wages;
+}
+
+    else if(wages<=33800){
+
+        var thirty = wages/100*20;
+        var home = wages - thirty;
+
+    	 document.getElementById("demo").innerHTML = "Your base salary is "+wages +" and you pay "+thirty +" tax" ;
+
+          document.getElementById("takehome").innerHTML = "Your take home salary is " +home;
+
+    	// window.alert("your base salary is "+wages);
+    }
+
+    else if(wages>=33800){
+
+        var thirtyup = wages-33800;
+        var doit = 33800/100*20;
+        var adj = thirtyup/100*40
+        var alltax = adj + doit;
+        var home = wages - alltax;
+
+         document.getElementById("demo").innerHTML = "Your base salary is "+wages +" and you pay "+thirtyup +" tax" ;
+
+          document.getElementById("takehome").innerHTML = "Your take home salary is " +home;
+
+        // window.alert("your base salary is "+wages);
+    }
+
+
+function exportToCsv() {
+            var myCsv = "Yearly tax payable "+home;
+
+            window.open('data:text/csv;charset=utf-8,' + escape(myCsv));
+        }
+
+         var button = document.getElementById('b');
+        button.addEventListener('click', exportToCsv);
+
+}
+</script>
+
+
+<button id="b">Export to CSV</button>
+   
+
+
+
+</body>
+</html>
