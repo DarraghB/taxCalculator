@@ -1,0 +1,254 @@
+<?php
+
+    session_start();
+
+    if (!isset($_SESSION['FirstVisit'])) {
+
+    //show site for the first time part
+    $_SESSION['FirstVisit'] = 1;
+    echo "howya friend";
+
+  //  var_dump($_SERVER);
+
+
+
+    } else {
+
+
+echo "you're back";
+//   echo '<script>
+
+
+// window.onload = function number_of_people() {
+
+//     var person = prompt("Please enter the mumber of people in your house", "");
+    
+//     if (person != null) {
+//       document.getElementById("people").innerHTML = person;
+//     }
+// }
+
+
+// number_of_people();
+
+// </script>';
+
+ //var_dump($_SERVER);
+
+     }
+
+?>
+<html>
+<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+        <head>
+
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+            <meta name="description" content="">
+            <meta name="author" content="">
+
+            <title>BER</title>
+
+            <!-- Bootstrap Core CSS -->
+             <link href="../css/fill.css" rel="stylesheet">
+
+            <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+            <link href="../css/loading.css" rel="stylesheet">
+
+            <link href="../css/spinner5.css" rel="stylesheet">
+
+        </head>
+
+<body>
+
+   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">BER</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+<br/>
+
+
+<div id="darragh">
+
+
+
+
+<?php
+
+include '../database/db_connect.php';
+
+
+
+function strposa($haystack, $needles=array(), $offset=0) {
+        $chr = array();
+        foreach($needles as $needle) {
+            global $res;
+            global $chr;
+             $res = strpos($haystack, $needle, $offset);
+                if ($res !== false) $chr[$needle] = $res;
+        }
+        if(empty($chr)) return false;
+        return min($chr);
+
+        
+}
+
+echo $myurl;
+
+$string = file_get_contents("http://energy.comxa.com/a1_rating.php");
+
+$array  = array('A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1','C2', 'C3', 'D1', 'D2');
+
+if (strposa($string, $array, 1)) {
+
+
+    foreach ($chr as $key => $value) {
+        # code...
+    echo '<div id="ber_rating">';
+    echo 'The Energy Rating is '.'<h1>'.$key.'</h1>';
+    echo '</div>';
+
+
+
+
+//html under the closing
+    ?>
+
+<div id="lodr" style="display:none">
+
+<div class="cssload-container">
+        <div class="cssload-sphere cssload-s-gold"></div>
+        <div class="cssload-sphere cssload-s-5"></div>
+        <div class="cssload-sphere cssload-s-4"></div>
+        <div class="cssload-sphere cssload-s-3"></div>
+        <div class="cssload-sphere cssload-s-2"></div>
+        <div class="cssload-sphere cssload-s-1"></div>
+</div>
+
+</div>
+
+
+<script type = "text/javascript">
+
+function show() {
+    document.getElementById("lodr").style.display="block";
+    setTimeout("hide()", 2000);  // 5 seconds
+}
+
+function hide() {
+    document.getElementById("lodr").style.display="none";
+}
+
+</script>
+
+
+<div id="form">
+    <center><h1>Enter The Number of people who Live in you House</h1>
+<input type="text" id="people" value=""></input>
+
+
+
+<button type="submit" onclick="setTimeout(function() { getRating(); }, 2000); show();">Calculate Savings!</button>
+
+</div>
+<div id = "myDiv" style="display:none">
+
+<div class="cssload-thecube">
+    <div class="cssload-cube cssload-c1"></div>
+    <div class="cssload-cube cssload-c2"></div>
+    <div class="cssload-cube cssload-c4"></div>
+    <div class="cssload-cube cssload-c3"></div>
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+
+
+var peopleInHouseHold = document.getElementById("people").value;
+
+function getRating(ratingCategory, peopleInHouseHold)
+{
+    var ratingCategory = $("#ber_rating").text();
+    var saving = calculateSaving(ratingCategory,peopleInHouseHold);
+    $("#you_save").text("You save €" + saving);
+
+}
+
+    var ratingCategory = $("#ber_rating").text();
+
+
+function calculateSaving(){
+
+            var peopleInHouseHold = document.getElementById("people").value;
+            if (ratingCategory == 'The Energy Rating is A1'){return peopleInHouseHold * 100}
+            if (ratingCategory == 'The Energy Rating is A2'){return peopleInHouseHold * 90}
+            if (ratingCategory == 'The Energy Rating is A3'){return peopleInHouseHold * 80}
+            if (ratingCategory == 'The Energy Rating is B1'){return peopleInHouseHold * 70}
+
+}
+setTimeout(function() { a1(); }, 2000);
+
+</script>
+<div id="the_rating"></div>
+
+<div id="you_save"></div>
+
+
+
+    <?php
+
+   
+
+}
+
+
+} else {
+    echo 'Rating not found. Please try again.';
+}
+
+
+
+
+?>
+
+
+<?php
+
+include '../sessions/session_mgr.php';
+
+
+?>
+
+<script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+
+
+</html>
